@@ -1,6 +1,6 @@
 cask "sogon" do
-  version "0.31.5"
-  sha256 "6f6784a5cc6a5543ad26af2db7ec7f9099245790ea2a0053d36858ccfad426ac"
+  version "0.31.6"
+  sha256 "abe0ae6af386bbeef4ded81c9bbc6eeb8db2649eaece60c55019d72f76459687"
 
   # GitHub Release 자산. 저장소가 공개이므로 **인증 없이 받아진다** — 예전 내부 호스팅이 요구했던
   # 세션과 토큰이 필요 없다.
@@ -12,7 +12,9 @@ cask "sogon" do
   desc "Menu-bar STT app: voice to transcription with LLM correction and auto insert"
   homepage "https://sogon.dev/"
 
-  # Sparkle 자체 업데이트 사용 (brew upgrade 없이도 앱이 스스로 업데이트)
+  # Sparkle 자체 업데이트를 쓴다 — `brew upgrade` 없이도 앱이 스스로 받고 설치한다.
+  # 피드는 https://sogon.dev/appcast.xml 이고 자산은 이 Cask가 가리키는 것과 **같은 DMG**다.
+  # 그래서 brew로 받은 사람과 앱이 스스로 받는 사람이 같은 바이트를 받는다.
   auto_updates true
   # Apple Silicon 전용, macOS 14+
   depends_on arch: :arm64
